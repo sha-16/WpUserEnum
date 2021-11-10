@@ -4,7 +4,7 @@ Para ello aplico fuerza bruta con un diccionario (que puede cualquiera; todo a g
 
 ## Instalación y uso
 ```bash
-$ git clone https://github.com/sha-16/wp-user-enumeration.git
+$ git clone https://github.com/sha-16/wp-user-enum.git
 $ cd wp-user-enume/
 $ chmod +x wp-user-enum.py
 $ ./wp-user-enum.py
