@@ -9,4 +9,4 @@ $ cd wp-user-enume/
 $ chmod +x wp-user-enum.py
 $ ./wp-user-enum.py
 ```
-**Nota:** si detectas errores en el código o ejecución del script, por favor házmelo saber ❤. 
+**Nota:** si detectas errores en el código o ejecución del script, por favor házmelos saber ❤. 
