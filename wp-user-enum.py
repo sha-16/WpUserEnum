@@ -59,7 +59,7 @@ def makeRequests(user):
         global requests_errors
         requests_errors += 1
         if requests_errors == 10:
-            print('\n[!] Error: there are too many errors with requests, please check if your target is active!')
+            print('\n[!] Error: there are too many errors with requests, please check if your target is up!')
             os._exit(2)
 
 ##########################################################################################
