@@ -1,0 +1,11 @@
+ADMIN
+c0ldd
+admin
+root
+Administrator
+philip
+USERID
+juan
+hugo
+guest
+Admin
