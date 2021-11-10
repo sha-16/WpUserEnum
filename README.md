@@ -1,6 +1,6 @@
 # WP-USER-ENUM
 Esta es una utilidad que he creado con el fin único de enumerar usuarios de plataformas WordPress a través del panel de login que estos traen.
-Para ello aplico fuerza bruta con un diccionario (que puede cualquiera; todo a gusto de quien la utilice).
+Para ello aplico fuerza bruta con un diccionario (que puede ser cualquiera; todo a gusto de quien la utilice).
 
 ## Instalación y uso
 ```bash
