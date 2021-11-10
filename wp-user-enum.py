@@ -108,6 +108,6 @@ if __name__ == '__main__':
         print("-"*70)
         print("\n~ EXAMPLE: ")
         print(f"\n$ wp-user-enum.py users.txt http://wp-website.com/wp-login.php")
-        print(f"$ wp-user-enum.py /usr/share/worldlists/rockyou.txt http://wp-website.com/wordpress/wp-login.php")
+        print(f"$ wp-user-enum.py /usr/share/worldlists/rockyou.txt http://wp-website.com/wordpress/wp-login.php\n")
 
 ##########################################################################################
