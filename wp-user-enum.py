@@ -1,7 +1,7 @@
 #!/usr/bin/python3 
 
 import requests, sys 
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ThreadPoolExecutor
 from pwn import *
 
 # WORDPRESS USER ENUM
@@ -89,7 +89,7 @@ if __name__ == '__main__':
                 print("[*] USERS FOUND:")
                 print("-"*70)
 
-                with ProcessPoolExecutor(max_workers=50) as executor: 
+                with ThreadPoolExecutor(max_workers=50) as executor: 
                     results = executor.map(makeRequests, dictionary)
     
                 print("-"*70)
