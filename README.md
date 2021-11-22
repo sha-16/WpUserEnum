@@ -14,3 +14,5 @@ $ ./wp-user-enum.py
 ![](img/wp-user-enum-poc.png)
 
 **Nota:** si detectas errores en el código o ejecución del script, por favor házmelos saber ❤. 
+
+### Happy Hacking!❤⚡
